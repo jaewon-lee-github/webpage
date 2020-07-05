@@ -4,16 +4,20 @@
 ### How to fix that gihub ask me the password always.
   - git config --global credential.helper store
   - https://www.freecodecamp.org/news/how-to-fix-git-always-asking-for-user-credentials/
+  
+## Markdown
+### add nesting indentation
+  - add four spaces than previous line in front of the nesting numbers
  
 ## Pocl
 ### How newlib device target create thread on RISC-V
 #### Generate Host+Device binary
   1. The newlib device target creates RISCV binary that includes both the host and kernel code merged together.
   1. Generate Kernel code during the compilation phase by calling pocl_llvm_build_newlib_program()(line 558).
-  1. This call will create a kernel blob (static library) that includes 
-    1. the kernel function body
-    1. the kernel registration function _pocl_register_kernel (line 579)
-    1. a static global object auto_register_kernel_t (line 616)
+  1. This call will create a kernel blob (static library) that includes  
+      1. the kernel function body  
+      1. the kernel registration function _pocl_register_kernel (line 579)  
+      1. a static global object auto_register_kernel_t (line 616)
   1. To generate the final Newlib program, we merge the OpenCL host program with the Kernel blob described above to get a combined RISC-V binary.
 #### Launch the binary 
   1. When you launch the binary, the C++ runtime will first initialize all global objects including auto_register_kernel_t
